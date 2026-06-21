@@ -10,4 +10,3 @@ class LoopsPractice:
         words = [f"str{i}" for i in range(10)]
         for word in words:
             print(word)
-
