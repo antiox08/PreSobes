@@ -6,5 +6,8 @@ class LoopsPractice:
                 break
             print(i)
 
-practice = LoopsPractice()
-practice.numbers()
+    def words(self):
+        words = [f"str{i}" for i in range(10)]
+        for word in words:
+            print(word)
+
