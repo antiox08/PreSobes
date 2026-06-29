@@ -2,9 +2,10 @@ class LoopsPractice:
     def numbers(self):
         numbers = list(range(1, 8))
         for i in numbers:
+            print(i)
             if i == 5:
                 break
-            print(i)
+
 
     def words(self):
         words = [f"str{i}" for i in range(10)]
