@@ -1,14 +1,15 @@
 import pytest
-from selenium import webdriver
-
+from playwright.sync_api import sync_playwright
 
 @pytest.fixture
-def driver():
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
+def page():
 
+    with sync_playwright() as p:
 
-def test_google(driver):
-    driver.get("https://google.com")
-    assert "Google" in driver.title
+        browser = p.chromium.launch(headless=False)
+
+        page = browser.new_page()
+
+        yield page
+
+        browser.close()
