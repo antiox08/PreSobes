@@ -12,7 +12,3 @@ def test_searh(page: Page):
     page.locator('#searchInput').first.fill('python')
     page.get_by_role('option').first.click()
     expect(page.locator('#firstHeading')).to_have_text('Python')
-
-
-
-
