@@ -12,7 +12,8 @@ def db_fixture():
 
 def test_add_user():
     db.append("user")
-    assert (len(db) == 1)
+    assert len(db) == 1
+
 
 def test_add_admin():
     db.append("admin")

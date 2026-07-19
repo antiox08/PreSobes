@@ -1,8 +1,10 @@
 from playwright.sync_api import Page
 from playwright.sync_api import expect
+
+
 class LoginPage:
 
-    URL = 'https://github.com/login'
+    URL = "https://github.com/login"
 
     def __init__(self, page: Page):
         self.page = page
@@ -12,12 +14,12 @@ class LoginPage:
 
     def login(self, username, password):
 
-        self.page.locator('#login_field').fill(username)
-        self.page.locator('#password').fill(password)
+        self.page.locator("#login_field").fill(username)
+        self.page.locator("#password").fill(password)
         self.page.get_by_role("button", name="Sign in").click()
 
     def avatar_should_be_visible(self):
-        expect(self.page.locator('.avatar-user')).to_be_visible()
+        expect(self.page.locator(".avatar-user")).to_be_visible()
 
     def expect_login_error(self):
-        expect(self.page.locator('#js-flash-alert')).to_be_visible()
+        expect(self.page.locator("#js-flash-alert")).to_be_visible()

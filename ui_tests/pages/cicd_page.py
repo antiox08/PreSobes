@@ -8,6 +8,6 @@ class CiCdPage:
 
     def click_contact_sales(self):
         """Кликаем по Contact sales"""
-        self.page.get_by_test_id("Hero-grid") \
-            .get_by_role("link", name="Contact sales") \
-            .click()
+        self.page.get_by_test_id("Hero-grid").get_by_role(
+            "link", name="Contact sales"
+        ).click()
