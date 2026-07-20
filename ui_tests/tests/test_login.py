@@ -11,15 +11,17 @@ from ui_tests.pages.login_page import LoginPage
         (os.getenv("GH_USER2"), os.getenv("GH_PASS2")),
     ],
 )
-def test_positive_login(page, user, password):
+def test_positive_login(page, user:str, password:str) -> None:
     if not user or not password:
         pytest.skip("No credentials")
 
     login = LoginPage(page)
     login.open()
+
     login.login(user, password)
     login.avatar_should_be_visible()
 
+    assert "github.com/login" not in login.current_url()
 
 @pytest.mark.ui
 def test_negative_login(page):
