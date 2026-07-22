@@ -6,7 +6,6 @@ class LoopsPractice:
             if i == 5:
                 break
 
-
     def words(self):
         words = [f"str{i}" for i in range(10)]
         for word in words:

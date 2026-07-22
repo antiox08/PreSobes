@@ -1,8 +1,8 @@
-from PreSobes.ui_tests.pages.home_page import HomePage
-from PreSobes.ui_tests.pages.solutions_menu import SolutionsMenu
-from PreSobes.ui_tests.pages.cicd_page import CiCdPage
-from PreSobes.ui_tests.pages.сontact_sales_page import ContactSalesPage
-from PreSobes.ui_tests.contact_sales_data import contact_sales_data
+from ui_tests.pages.home_page import HomePage
+from ui_tests.pages.solutions_menu import SolutionsMenu
+from ui_tests.pages.cicd_page import CiCdPage
+from ui_tests.pages.сontact_sales_page import ContactSalesPage
+from ui_tests.contact_sales_data import contact_sales_data
 
 
 def test_contact_sales_form_is_filled(page):

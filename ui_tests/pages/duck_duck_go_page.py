@@ -2,8 +2,8 @@ from playwright.sync_api import Page
 
 
 class DuckDuckGo:
-    URL = 'https://duckduckgo.com'
-    SEARCH_INPUT = '#searchbox_input'
+    URL = "https://duckduckgo.com"
+    SEARCH_INPUT = "#searchbox_input"
     RESULT = '[data-testid="result"]'
 
     def __init__(self, page: Page) -> None:

@@ -8,5 +8,4 @@ class SolutionsMenu:
 
     def select_cicd(self):
         """Клик по CI/CD в выпадающем меню"""
-        self.page.get_by_role('link', name='CI/CD').click()
-
+        self.page.get_by_role("link", name="CI/CD").click()

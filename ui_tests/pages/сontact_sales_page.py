@@ -3,9 +3,9 @@ from playwright.sync_api import Page
 
 class ContactSalesPage:
 
-    FIRST_NAME = '#form-field-first_name'
-    LAST_NAME = '#form-field-last_name'
-    COMPANY = '#form-field-company'
+    FIRST_NAME = "#form-field-first_name"
+    LAST_NAME = "#form-field-last_name"
+    COMPANY = "#form-field-company"
     JOB_TITLE = '[name="job_title"]'
     EMAIL = '[name="email"]'
 

@@ -7,6 +7,6 @@ def test_login_success():
 
     page.open()
 
-    result = page.login('Anton', '123')
+    result = page.login("Anton", "123")
 
     assert result == "Anton logged in"
