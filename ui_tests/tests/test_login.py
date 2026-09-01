@@ -1,6 +1,7 @@
 import os
 import pytest
 from ui_tests.pages.login_page import LoginPage
+from ui_tests.pages.home_page import HomePage
 
 
 @pytest.mark.ui
@@ -11,7 +12,7 @@ from ui_tests.pages.login_page import LoginPage
         (os.getenv("GH_USER2"), os.getenv("GH_PASS2")),
     ],
 )
-def test_positive_login(page, user:str, password:str) -> None:
+def test_positive_login(page, user: str, password: str) -> None:
     if not user or not password:
         pytest.skip("No credentials")
 
@@ -22,6 +23,10 @@ def test_positive_login(page, user:str, password:str) -> None:
     login.avatar_should_be_visible()
 
     assert "github.com/login" not in login.current_url()
+
+    home = HomePage(page)
+    assert home.dashboard_button_is_visible()
+
 
 @pytest.mark.ui
 def test_negative_login(page):
