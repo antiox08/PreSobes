@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Flaky tests",
+    "matchedStatuses": ["failed", "broken"],
+    "messageRegex": ".*flaky.*"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*ReadTimeout.*"
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*TimeoutError.*|.*playwright.*"
+  }
+]

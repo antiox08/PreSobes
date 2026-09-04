@@ -1,5 +1,5 @@
 from playwright.sync_api import Page
-
+import allure
 
 class HomePage:
 
@@ -13,4 +13,5 @@ class HomePage:
 
     def go_to_solutions(self):
         """Кликаем по Solutions в верхнем меню"""
-        self.page.get_by_role("button", name="Solutions").click()
+        with allure.step('Кликаем по Solutions в верхнем меню'):
+            self.page.get_by_role("button", name="Solutions").click()

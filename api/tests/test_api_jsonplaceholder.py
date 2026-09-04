@@ -1,3 +1,4 @@
+import pytest
 from pydantic import BaseModel, ConfigDict, Field
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
@@ -13,6 +14,7 @@ class Post(BaseModel):
     body: str = Field(min_length=10, max_length=2000, description="Содержание поста")
 
 
+@pytest.mark.api
 def test_get_post_validates_with_pydantic(session):
     """Проверка контракта полей"""
 
@@ -25,6 +27,7 @@ def test_get_post_validates_with_pydantic(session):
     assert post.id == 1
 
 
+@pytest.mark.api
 def test_get_posts_by_user_id(session):
     response = session.get(
         url=f"{BASE_URL}/posts", params={"userId": 1}, timeout=TIMEOUT
@@ -40,6 +43,7 @@ def test_get_posts_by_user_id(session):
         assert post.userId == 1
 
 
+@pytest.mark.api
 def test_create_post_returns_201_and_validates(session):
     payload = {
         "userId": 1,
@@ -55,6 +59,7 @@ def test_create_post_returns_201_and_validates(session):
     assert post.id == 101
 
 
+@pytest.mark.api
 def test_delete_post_returns_200_or_204(session):
     response = session.delete(url=f"{BASE_URL}/posts/1", timeout=TIMEOUT)
 

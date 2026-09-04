@@ -11,6 +11,8 @@ ENV/
 .env/
 # Environment variables
 .env
+.env.example
+
 
 # IDE
 .idea/
@@ -22,6 +24,7 @@ ENV/
 htmlcov/
 .tox/
 .nox/
+
 
 # Type checking
 .mypy_cache/
