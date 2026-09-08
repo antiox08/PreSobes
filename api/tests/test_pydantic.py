@@ -1,5 +1,4 @@
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from requests.exceptions import HTTPError, Timeout
 
 
 class Post(BaseModel):

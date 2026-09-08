@@ -1,9 +1,10 @@
 import pytest
 import responses
-from requests import Session
-from api.client import BASE_URL, get_post
 from pydantic import BaseModel, ConfigDict, Field
+from requests import Session
 from requests.exceptions import HTTPError
+
+from api.client import BASE_URL, get_post
 
 
 class Post(BaseModel):

@@ -1,5 +1,7 @@
 import os
+
 import pytest
+
 from ui_tests.pages.login_page import LoginPage
 
 

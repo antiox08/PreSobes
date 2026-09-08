@@ -1,4 +1,5 @@
 import pytest
+
 from api.client import get_post
 
 
