@@ -3,6 +3,7 @@ import os
 import pytest
 
 from ui_tests.pages.login_page import LoginPage
+from ui_tests.pages.home_page import HomePage
 
 
 @pytest.mark.ui
@@ -24,6 +25,9 @@ def test_positive_login(page, user: str, password: str) -> None:
     login.avatar_should_be_visible()
 
     assert "github.com/login" not in login.current_url()
+
+    home = HomePage(page)
+    assert home.dashboard_button_is_visible()
 
 
 @pytest.mark.ui
