@@ -2,6 +2,8 @@ import os
 import pytest
 from ui_tests.pages.login_page import LoginPage
 import allure
+from ui_tests.pages.home_page import HomePage
+
 
 @pytest.mark.ui
 @allure.feature('login')
@@ -12,7 +14,7 @@ import allure
         (os.getenv("GH_USER2"), os.getenv("GH_PASS2")),
     ],
 )
-def test_positive_login(page, user:str, password:str) -> None:
+def test_positive_login(page, user: str, password: str) -> None:
     if not user or not password:
         pytest.skip("No credentials")
 
@@ -26,6 +28,10 @@ def test_positive_login(page, user:str, password:str) -> None:
 
     with allure.step('check login in url'):
         assert "github.com/login" not in login.get_current_url()
+
+    home = HomePage(page)
+    assert home.dashboard_button_is_visible()
+
 
 @pytest.mark.ui
 @allure.feature('login')
