@@ -5,6 +5,11 @@ from playwright.sync_api import Page, expect
 from ui_tests.pages.duck_duck_go_page import DuckDuckGo
 
 
+@pytest.mark.ui
+@pytest.mark.xfail(
+    reason="DuckDuckGo: сеть/капча/смена DOM (#searchbox_input)",
+    strict=False,
+)
 @pytest.mark.parametrize("query", ["qa", "aqa", "python"])
 def test_search_return_result(page: Page, query: str) -> None:
     with allure.step("Open DuckDuckGo"):

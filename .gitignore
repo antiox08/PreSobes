@@ -8,11 +8,9 @@ venv/
 .venv/
 env/
 ENV/
-.env/
-# Environment variables
-.env
-.env.example
 
+# Environment variables (secrets) — шаблон .env.example коммитим
+.env
 
 # IDE
 .idea/
@@ -25,6 +23,10 @@ htmlcov/
 .tox/
 .nox/
 
+# Allure: результаты прогона не коммитим, categories.json — да
+reports/allure/*
+!reports/allure/categories.json
+!reports/allure/.gitkeep
 
 # Type checking
 .mypy_cache/
@@ -41,3 +43,6 @@ dist/
 
 # OS
 .DS_Store
+
+# Local misc
+assets/
