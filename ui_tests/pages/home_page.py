@@ -14,3 +14,7 @@ class HomePage:
     def go_to_solutions(self):
         """Кликаем по Solutions в верхнем меню"""
         self.page.get_by_role("button", name="Solutions").click()
+
+    def dashboard_button_is_visible(self) -> bool:
+        """Проверяет, видна ли кнопка Dashboard"""
+        return self.page.get_by_role("link", name="Dashboard").is_visible()
