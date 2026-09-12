@@ -1,5 +1,4 @@
-from playwright.sync_api import Page
-from playwright.sync_api import expect
+from playwright.sync_api import Page, expect
 
 
 class LoginPage:

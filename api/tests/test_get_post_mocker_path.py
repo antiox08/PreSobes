@@ -1,8 +1,10 @@
-import pytest
 from unittest.mock import Mock
-from requests import Session
-from api.client import get_post
+
+import pytest
 from pydantic import BaseModel, ConfigDict, Field
+from requests import Session
+
+from api.client import get_post
 
 
 class Post(BaseModel):
