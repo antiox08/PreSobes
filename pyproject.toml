@@ -19,3 +19,10 @@ line_length = 88
 
 [tool.black]
 line-length = 88
+[tool.pytest.ini_options]
+addopts = "-q -ra"
+markers = [
+    "smoke",
+    "ui",
+    "api",
+]

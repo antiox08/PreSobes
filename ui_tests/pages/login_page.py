@@ -21,7 +21,9 @@ class LoginPage:
         self.page.get_by_role("button", name="Sign in").click()
 
     def avatar_should_be_visible(self):
-        expect(self.page.get_by_test_id("github-avatar")).to_be_visible()
+        expect(
+            self.page.get_by_label("Open user navigation menu")
+        ).to_be_visible()
 
     def expect_login_error(self):
-        expect(self.page.locator("#js-flash-alert")).to_be_visible()
+        expect(self.page.get_by_role("alert")).to_be_visible()
