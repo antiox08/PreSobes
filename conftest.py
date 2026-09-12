@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import allure
 import pytest
 from dotenv import load_dotenv
@@ -40,7 +41,9 @@ class AllureReporter:
         )
 
     @pytest.hookimpl(hookwrapper=True, tryfirst=True)
-    def pytest_runtest_makereport(self, item: pytest.Item, call: pytest.CallInfo) -> None:
+    def pytest_runtest_makereport(
+        self, item: pytest.Item, call: pytest.CallInfo
+    ) -> None:
         """Хук после каждого этапа теста: attachments при падении."""
         outcome = yield
         report = outcome.get_result()
