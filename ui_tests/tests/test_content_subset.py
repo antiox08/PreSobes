@@ -1,5 +1,6 @@
 import pytest
 from playwright.sync_api import Page, expect
+
 from ui_tests.pages.features_items_section import FeaturesItemsSection
 
 

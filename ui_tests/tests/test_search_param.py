@@ -1,5 +1,6 @@
 import pytest
 from playwright.sync_api import Page, expect
+
 from ui_tests.pages.duck_duck_go_page import DuckDuckGo
 
 

@@ -2,7 +2,7 @@ import pytest
 from playwright.sync_api import Page, expect
 
 
-def test_wiki(page: Page):
+def test_wiki(page: Page) -> None:
     page.goto("https://ru.wikipedia.org/")
     page.locator("#ca-talk").get_by_role("link", name="Обсуждение").click()
     expect(
@@ -11,7 +11,7 @@ def test_wiki(page: Page):
 
 
 @pytest.mark.ui
-def test_search(page: Page):
+def test_search(page: Page) -> None:
     page.goto("https://ru.wikipedia.org/")
     page.locator("#searchInput").first.fill("python")
     page.get_by_role("option").first.click()
