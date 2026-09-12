@@ -3,10 +3,12 @@ import os
 import pytest
 
 from ui_tests.pages.login_page import LoginPage
+import allure
 from ui_tests.pages.home_page import HomePage
 
 
 @pytest.mark.ui
+@allure.feature('login')
 @pytest.mark.parametrize(
     "user, password",
     [
@@ -18,19 +20,23 @@ def test_positive_login(page, user: str, password: str) -> None:
     if not user or not password:
         pytest.skip("No credentials")
 
-    login = LoginPage(page)
-    login.open()
+    with allure.step(f"Open login page"):
+        login = LoginPage(page)
+        login.open()
+    with allure.step(f"Login as {user}"):
+        login.login(user, password)
+    with allure.step("Verify avatar is visible"):
+        login.avatar_should_be_visible()
 
-    login.login(user, password)
-    login.avatar_should_be_visible()
-
-    assert "github.com/login" not in login.current_url()
+    with allure.step('check login in url'):
+        assert "github.com/login" not in login.get_current_url()
 
     home = HomePage(page)
     assert home.dashboard_button_is_visible()
 
 
 @pytest.mark.ui
+@allure.feature('login')
 def test_negative_login(page):
     user = os.getenv("GH_USER")
     password = os.getenv("GH_PASS_FAKE")
@@ -38,7 +44,12 @@ def test_negative_login(page):
     if not user or not password:
         pytest.skip("No credentials")
 
-    login = LoginPage(page)
-    login.open()
-    login.login(user, password)
-    login.expect_login_error()
+    with allure.step('Open the page'):
+        login = LoginPage(page)
+        login.open()
+
+    with allure.step(f'Invalid login as {user}'):
+        login.login(user, password)
+
+    with allure.step('error is visible'):
+        login.expect_login_error()
