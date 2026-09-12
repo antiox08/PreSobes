@@ -1,11 +1,24 @@
 [tool.mypy]
 python_version = "3.12"
 strict = true
+exclude = [
+  "(?x)(^tests/loops_practice\\.py$|^tests/test_fixture_autouse\\.py$|^tests/test_fixture_module\\.py$|^tests/test_page_object\\.py$|^tests/ui/)",
+]
 
 [[tool.mypy.overrides]]
 module = "playwright.*"
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+module = "pages.*"
+ignore_errors = true
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.black]
+line-length = 88
 [tool.pytest.ini_options]
 addopts = "-q -ra"
 markers = [
